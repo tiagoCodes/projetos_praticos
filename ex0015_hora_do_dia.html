@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: rgba(13, 13, 243, 0.699);
+    }
+    section{
+      margin: auto; /*deixa o texto no centro */
+      background-color: rgb(255, 255, 255);
+      width: 500px;
+      border-radius: 10px; /*deixa as bordas redondas */
+      padding: 15px; /*tamanho do section no geral */
+      box-shadow: 3px 3px 10px;
+
+      
+    }
+    header{
+      text-align: center; /*deixa o texto no centro */
+      color: white;
+    }
+    footer{
+      text-align: center;
+      color: white;
+      font-style: italic; /*coloca o texto me italico*/
+    }
+    div {
+      text-align: center;
+    }
+    div#img{
+      margin-top: -130px; /*sobe a imagem pro topo*/
+    }
+  </style>
+</head>
+
+
+<body onload="mudar ()">
+  <header>   <!--cabeçalho-->
+    <h1>Hora do dia </h1>
+  </header>
+  <section>
+
+   <div id="texto">
+    <h3>Aqui vai aparecer o texto </h3>
+   </div> 
+
+   <div id="foto">
+    <img id="imag" src="img/manhã.png" alt="">
+   </div>
+
+  </section>
+  <footer>
+    <p>&copy; Projeto prático</p> <!-- copy adiciona o simbulo -->
+  </footer>
+
+  <script>
+    function mudar (){
+    var foto = document.getElementById("imag")
+    var texto = document.getElementById("texto")  
+    var data = new Date() // armazena a hora e data atual  
+    var hora = data.getHours() // puxa a hora guardada 
+    texto.innerHTML = `Agora são ${hora} horas.`
+    if(hora >= 0 && hora <12 ){
+      foto.src = "img/manhã.png" // puxa a informação do id (foto)
+      texto.innerHTML = `Agora são ${hora} horas, bom dia.`  
+      document.body.style.background = '#fde6cf' // modifica a cor de fundo 
+    }else if(hora >= 12 && hora <18 ){
+      foto.src = "img/tarde.png"
+      texto.innerHTML = `Agora são ${hora} horas, boa tarde.`  
+      document.body.style.background ='#feb944'
+    } else {
+      foto.src = "img/noite.png"
+      texto.innerHTML = `Agora são ${hora} horas, boa noite.`
+      document.body.style.background = '#0d2726'
+    }
+    }
+  </script>
+</body>
+<!--"Este projeto exibe dinamicamente a hora atual e muda a imagem e o fundo conforme o período do dia (manhã, tarde ou noite). Foi desenvolvido em HTML, CSS e JavaScript, aplicando lógica com new Date() e getHours() para identificar o horário e atualizar a interface em tempo real."-->
+</html>
