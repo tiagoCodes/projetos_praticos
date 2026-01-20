@@ -48,7 +48,7 @@
    </div> 
 
    <div id="foto">
-    <img id="imag" src="img/manhã.png" alt="">
+    <img id="imag" src="imagem/manhã.png" alt="">
    </div>
 
   </section>
@@ -64,15 +64,15 @@
     var hora = data.getHours() // puxa a hora guardada 
     texto.innerHTML = `Agora são ${hora} horas.`
     if(hora >= 0 && hora <12 ){
-      foto.src = "img/manhã.png" // puxa a informação do id (foto)
+      foto.src = "imagem/manhã.jpg" // puxa a informação do id (foto)
       texto.innerHTML = `Agora são ${hora} horas, bom dia.`  
       document.body.style.background = '#fde6cf' // modifica a cor de fundo 
     }else if(hora >= 12 && hora <18 ){
-      foto.src = "img/tarde.png"
+      foto.src = "imagem/tarde.png"
       texto.innerHTML = `Agora são ${hora} horas, boa tarde.`  
       document.body.style.background ='#feb944'
     } else {
-      foto.src = "img/noite.png"
+      foto.src = "imagem/noite.png"
       texto.innerHTML = `Agora são ${hora} horas, boa noite.`
       document.body.style.background = '#0d2726'
     }
