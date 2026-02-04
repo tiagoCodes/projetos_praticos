@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aba de Cadastro </title>
+  <style>
+    .area{
+      display: flex;
+      justify-content: center; /* centraliza horizontalmente */
+    }
+
+    .area2{
+      display: flex;
+      justify-content: center;
+    }
+
+    body{
+      background-color: rgb(25, 6, 32);
+    }
+
+    h1{
+      color: rgb(252, 250, 252);
+    }
+
+    .area3{
+      display: flex;
+      flex-direction: column; /* coloca em coluna */
+      align-items: center; /*alinha o input no centro da div*/
+      background-color: rgba(0, 0, 0, 0.452);
+      width:320px;
+      height: 380px;
+      gap: 27px;
+     justify-content: center; /*centraliza o input dentro da div*/ 
+      padding: 20px; /*espaço interno */
+      margin: 30px auto;
+      border-radius: 30px;
+    }
+    .area3 #btn1{
+     width: unset; 
+    }
+    .area3 input{
+      height: 25px;
+      width: 180px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div class="area2">
+    <h1>Cadastre-se</h1>
+  </div>
+  <div class="area">
+    <img src="imagem/imagem-ex0010.png" alt="">
+  </div>
+  <div class="area3">
+    <input type="text" placeholder="Nome:" id="nome"> <!--(placeholder) a forma de mostrar uma dica dentro do campo sem atrapalhar o valor real que o usuário vai digitar -->
+    <input type="email" placeholder="E-mail:" id="email">
+    <input type="password" placeholder=" senha:"  id="senha">
+    <input type="date" placeholder="" id="nasc">
+    <input type="text" placeholder="Celular:" id="cel">
+    <input type="button" value="cadastrar" id ='btn1' >
+  </div>
+  
+
+  <script>
+    
+    var nome = document.getElementById('nome')
+    var email = document.getElementById('email')
+    var senha = document.getElementById('senha') 
+    var nasc = document.getElementById('nasc')
+    var cel = document.getElementById('cel')
+    var btn1 = document.getElementById('btn1')
+    btn1.addEventListener('click', clicar)
+    function clicar(){
+      var data = new Date()
+      var anoAtual = data.getFullYear()
+      var nascInput = nasc.value // pega o valor do input
+      var nomeInput = nome.value
+      var emailInput = email.value
+      var senhaInput = senha.value
+      var celInput = cel.value
+
+      if(!nomeInput){ // Se estiver vazio então, ativa o alert
+        alert('Digite seu Nome!')
+        return // sai da função sem contiuar (reseta tudo)
+      }
+      
+      if(!emailInput){
+        alert('Digite seu E-mail!')
+        return
+      }
+      
+      if(!senhaInput){
+        alert('digite sua Senha!')
+        return
+      }
+      
+      if(!nascInput){
+        alert('Digite  sua Data de Nascimento! ')
+        return
+      }
+      
+      if(!celInput){
+        alert('Digite seu Celular!')
+        return
+      }
+      
+      var dataNasc = new Date(nascInput)
+      var idade = anoAtual - dataNasc.getFullYear()
+      if(idade < 15){
+      alert('Idade insuficiente')
+    }else{
+      document.getElementsByClassName('area2')[0].innerHTML = '<h1>Cadastrado</h1>'
+      alert('Cadastrado com sucesso!!!')
+    }
+    }
+  </script>
+</body>
+</html>
